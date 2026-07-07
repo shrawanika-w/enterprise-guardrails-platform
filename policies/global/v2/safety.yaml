@@ -1,0 +1,9 @@
+version: v2
+
+status: DRAFT
+
+description: Enterprise Global Safety Policy
+
+toxicity_threshold: 0.75
+
+prompt_injection_detection: true

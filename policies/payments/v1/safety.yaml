@@ -1,0 +1,3 @@
+inherits: global
+version: payments-v1
+max_tokens: 4000

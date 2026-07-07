@@ -1,0 +1,7 @@
+version: v1
+
+status: PRODUCTION
+
+description: Enterprise Global Safety Policy
+
+toxicity_threshold: 0.80
