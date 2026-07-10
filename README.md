@@ -44,34 +44,26 @@ This repository demonstrates one possible implementation of these requirements.
 
 # Architecture
 
-```text
-                        Git Repository
-                (Version controlled YAML policies)
-                              │
-                              ▼
-                    +------------------+
-                    | Policy Registry  |   Tracks lifecycle and active versions
-                    +------------------+
-                              │
-                              ▼
-                    +------------------+
-                    |  Policy Loader   |   Loads and validates YAML policies
-                    +------------------+
-                              │
-                              ▼
-                    +------------------+
-                    | Policy Evaluator |   Applies configured guardrails
-                    +------------------+
-                              │
-                              ▼
-                    +------------------+
-                    | Evaluation Result|   Decision and evaluation details
-                    +------------------+
-                              │
-                              ▼
-                         AI Application
-```
+```mermaid
+flowchart TD
 
+    subgraph ControlPlane["Policy Management"]
+        G["Git Repository"]
+        R["Policy Registry"]
+        L["Policy Loader & Validator"]
+    end
+
+    subgraph Runtime["Policy Enforcement"]
+        E["Policy Evaluator"]
+        D["Evaluation Result"]
+    end
+
+    G --> R
+    R --> L
+    L --> E
+    E --> D
+    D --> A["AI Application"]
+```
 ---
 
 # Repository Structure
@@ -186,22 +178,15 @@ This allows policies to evolve without redeploying services.
 
 Every policy progresses through a controlled lifecycle.
 
-```text
-Draft
-  ↓
-Review
-  ↓
-Security Approval
-  ↓
-Published
-  ↓
-Canary
-  ↓
-Production
-  ↓
-Deprecated
-  ↓
-Archived
+```mermaid
+flowchart LR
+    A[Draft] --> B[Review]
+    B --> C[Security Approval]
+    C --> D[Published]
+    D --> E[Canary]
+    E --> F[Production]
+    F --> G[Deprecated]
+    G --> H[Archived]
 ```
 
 Each lifecycle transition is recorded for governance and audit purposes.
