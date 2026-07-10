@@ -6,6 +6,8 @@ The objective of this project is not to provide a production ready guardrail sol
 
 Policies are versioned, centrally managed and evaluated independently of application code.
 
+Find guardrail implementation references at [My git existing project - genai-security-owasp](https://github.com/shrawanika-w/genai-security-owasp "Shrawanika's git repo genai-security-owasp")
+
 ---
 
 # Motivation
