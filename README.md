@@ -273,17 +273,11 @@ Guardrails Engine
 
 This implementation separates policy authoring from policy execution.
 
-| Component          | Storage             |
-| ------------------ | ------------------- |
-| Policy definitions | Git Repository      |
-| Runtime cache      | In Memory / Redis   |
-| Policy metadata    | Relational Database |
-
-Git provides version control, code review and rollback.
-
-Redis provides low latency runtime access.
-
-The database stores ownership, lifecycle information, deployment history and audit records.
+| Component          | Storage             | Significance                                                                                              |
+| ------------------ | ------------------- | -------------------------------------------------------------------------------------------   |
+| Policy definitions | Git Repository      | Git provides version control, code review and rollback.                                       |
+| Runtime cache      | In Memory / Redis   | Redis provides low latency runtime access.                                                    |
+| Policy metadata    | Relational Database | The database stores ownership, lifecycle information, deployment history and audit records.   |
 
 ---
 
@@ -333,7 +327,7 @@ Rollback
 v2
 ```
 
-Changing the active version in the registry restores the previous policy immediately.
+Changing the active **version in the registry** restores the previous policy immediately.
 
 ---
 
@@ -348,10 +342,9 @@ Example:
 | Precision |      95% |       86% |
 | Recall    |      73% |       92% |
 
-A higher recall detects more unsafe requests, while lower precision may increase false positives.
+A **higher recall** detects more unsafe requests, while **lower precision** may increase false positives.
 
 Instead of immediately promoting the new policy, the recommended approach is to:
-
 - Deploy using a canary rollout.
 - Measure false positives and false negatives.
 - Monitor customer impact.
