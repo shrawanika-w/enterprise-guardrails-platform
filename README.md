@@ -104,6 +104,10 @@ enterprise-guardrails-platform/
         │   └── safety.yaml
         └── v2/
             └── safety.yaml
+    └── payments/
+        ├── metadata.yaml
+        ├── v1/
+        │   └── safety.yaml
 ```
 
 ---
