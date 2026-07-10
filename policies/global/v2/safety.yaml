@@ -7,3 +7,31 @@ description: Enterprise Global Safety Policy
 toxicity_threshold: 0.75
 
 prompt_injection_detection: true
+
+# Refer the following implementation of org. level guardrail libray at 
+[My git existing project - genai-security-owasp](https://github.com/shrawanika-w/genai-security-owasp "Shrawanika's git repo genai-security-owasp")
+
+dlp_patterns:
+- \\bpassword\\b
+- \\bsecret\\b
+- api[_-]?key
+- \\bssn\\b
+
+embedding_detection:
+  enabled: false
+  
+forbidden_commands:
+- import os
+- os.system
+- open(
+
+instruction_patterns:
+- ignore (previous|prior) instructions
+- do not follow previous
+- now you are
+- provide (the )?password
+- print the secret
+
+instruction_threshold: 0.5
+max_chunks: 5
+max_prompt_tokens: 1500
