@@ -8,8 +8,7 @@ toxicity_threshold: 0.75
 
 prompt_injection_detection: true
 
-# Refer the following implementation of org. level guardrail libray at 
-[My git existing project - genai-security-owasp](https://github.com/shrawanika-w/genai-security-owasp "Shrawanika's git repo genai-security-owasp")
+# Refer the following implementation of org. level guardrail libray at My git existing project - (https://github.com/shrawanika-w/genai-security-owasp)
 
 dlp_patterns:
 - \\bpassword\\b
